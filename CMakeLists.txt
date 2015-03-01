@@ -24,9 +24,10 @@ project(${PROJECT_NAME})
 cmake_minimum_required(VERSION 2.8.11)
 enable_testing()
 
+set(CMAKE_AUTOMOC ON)
 option( INCLUDE_PILE_SOURCES_DIRECTLY
         "Use internal dxf as a pile (ON) or as a library (OFF)"
-        OFF)
+        ON)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
@@ -51,9 +52,13 @@ if(INCLUDE_PILE_SOURCES_DIRECTLY)
     include(pile_support)
     pileInclude (Dxf)
     dxfInit(PILE)
+    pileInclude (UserMsg)
+    usermsgInit(PILE)
 else()
     set (DXF_BUILD_MODE SHARED)
     add_subdirectory(dxf)
+    set (USERMSG_BUILD_MODE SHARED)
+    add_subdirectory(usermsg)
 endif()
 
 add_subdirectory(tests)

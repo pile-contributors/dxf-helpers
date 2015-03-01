@@ -1,3 +1,6 @@
 [submodule "dxf"]
 	path = dxf
 	url = K:/git_repos/dxf
+[submodule "usermsg"]
+	path = usermsg
+	url = git@github.com:pile-contributors/usermsg.git

@@ -23,11 +23,16 @@ endif()
 add_executable(test_basic
     ${DXF_SOURCES}
     ${DXF_HEADERS}
+    ${USERMSG_SOURCES}
+    ${USERMSG_HEADERS}
     basic.cc)
 
 target_link_libraries(test_basic
     ${GTEST_BOTH_LIBRARIES}
-    ${DXF_LIBRARY})
+    ${DXF_LIBRARY}
+    ${USERMSG_LIBRARY})
+
+qt5_use_modules (test_basic Core)
 
 add_test(
     NAME test_basic
